@@ -18,13 +18,13 @@
  
 ![jiagoutu](img/jiagoutu.png)
 
-<center>架构图 </center>
+                                           架构图
 
 ##数据库表结构
 
 Web展示层主要负责的是数据的展现，将最终统计的结果直观的显示出来。其相对简单，主要包括两个模块：用户登录和结果展现。数据库表的设计如下：
 
-<center>Admin 用户登录表</center>
+Admin 用户登录表：
 
 |字段名|类型|备注|字段描述|
 |----|---|---|---|
@@ -34,7 +34,7 @@ Web展示层主要负责的是数据的展现，将最终统计的结果直观�
 
 
 
-<center>指标统计结果表</center>
+指标统计结果表：
 
 |字段名|类型|备注|字段描述|
 |----|---|---|---|
@@ -79,10 +79,10 @@ hadoop fs -put  access_${yesterday}.log   /web_log
 使用MapReduce对数据进行清洗，把原始数据处理清洗后，放到hdfs的/weblog _cleaned目录下，每天产生一个子目录。将数据清洗项目代码打成jar包，并将其上传至Linux服务器指定目录下，将自动执行清理的MapReduce程序加入脚本中，于每天1点将日志文件上传到HDFS后，执行数据清洗程序对已存入HDFS的日志文件进行过滤，并将过滤后的数据存入weblog_cleaned目录下。
                     
 ![qingxibefore](img/qingxibefore.png)
-<center>清洗之前的数据</center>
+                                          清洗之前的数据
 
 ![qingxiafter](img/qingxiafter.png)
-<center>清洗之后的数据</center>
+                                          清洗之后的数据
 
 (4)使用Hive对清洗后的数据进行统计分析。
 
@@ -161,7 +161,7 @@ hive -e "drop table weblog_${yesterday};"
 该系统前端主要使用jquery和bootstrap技术，使页面看起来更加美观；后端采用的是Struts2框架结合JDBC技术进行开发。Web系统展示主要包括两个方面:用户登录和统计展示效果如下：
 
 ![login](img/login.png)
-<center>登陆界面</center>
+                                      登陆界面
 
 ![result](img/result.png)
-<center>统计结果展示页面</center>
+                                   统计结果展示页面
