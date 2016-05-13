@@ -36,6 +36,7 @@ Web展示层主要负责的是数据的展现，将最终统计的结果直观�
 
 <center>指标统计结果表</center>
 
+|字段名|类型|备注|字段描述|
 |----|---|---|---|
 |logdate|varchar|主键|日志数据的日期|
 |pv|int||统计的PV结果|
@@ -78,11 +79,9 @@ hadoop fs -put  access_${yesterday}.log   /web_log
 使用MapReduce对数据进行清洗，把原始数据处理清洗后，放到hdfs的/weblog _cleaned目录下，每天产生一个子目录。将数据清洗项目代码打成jar包，并将其上传至Linux服务器指定目录下，将自动执行清理的MapReduce程序加入脚本中，于每天1点将日志文件上传到HDFS后，执行数据清洗程序对已存入HDFS的日志文件进行过滤，并将过滤后的数据存入weblog_cleaned目录下。
                     
 ![qingxibefore](img/qingxibefore.png)
-
 <center>清洗之前的数据</center>
 
 ![qingxiafter](img/qingxiafter.png)
-
 <center>清洗之后的数据</center>
 
 (4)使用Hive对清洗后的数据进行统计分析。
