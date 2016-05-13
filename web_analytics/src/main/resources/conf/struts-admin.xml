@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- 
+约定大于配置；
+dtd文件的作用约定或者限定文档内容的一个文档
+ -->
+<struts>
+  
+    <package name="admin" namespace="/" extends="struts-default">
+    <action  name="a_*" class="com.moon.controller.AdminAction" method="{1}">
+  		<result name="index" >index.jsp</result>
+  		<result name="redo" >login.jsp</result>
+  		<result name="success" >change_pwd_success.jsp</result>
+ 	</action> 
+    </package>
+
+    <!-- Add packages here -->
+
+</struts>
