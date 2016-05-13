@@ -18,33 +18,30 @@
  
 ![jiagoutu](img/jiagoutu.png)
 
-<center>
-架构图 
-</center>
+<center>架构图 </center>
 
 ##数据库表结构
 
 Web展示层主要负责的是数据的展现，将最终统计的结果直观的显示出来。其相对简单，主要包括两个模块：用户登录和结果展现。数据库表的设计如下：
 
-<center>
-Admin 用户登录表
+<center>Admin 用户登录表</center>
+
 |字段名|类型|备注|字段描述|
-|:----:|:---:|:---:|:---:|
+|----|---|---|---|
 |userId|int|主键|用户ID| 
 |userName|varchar||用户名| 
 |passWord|varchar||登录密码|
-</center>
 
 
-<center>
-指标统计结果表
-|:----:|:---:|:---:|:---:|
+
+<center>指标统计结果表</center>
+
+|----|---|---|---|
 |logdate|varchar|主键|日志数据的日期|
 |pv|int||统计的PV结果|
 |reguser|int||统计的UV结果|
 |ip|int||统计的IP结果|
 |jumper|int||统计的跳出数结果|
-</center>
 
 ##Web日志数据分析流程
 
@@ -82,11 +79,11 @@ hadoop fs -put  access_${yesterday}.log   /web_log
                     
 ![qingxibefore](img/qingxibefore.png)
 
-<center> 清洗之前的数据</center>
+<center>清洗之前的数据</center>
 
 ![qingxiafter](img/qingxiafter.png)
 
-<center>  清洗之后的数据</center>
+<center>清洗之后的数据</center>
 
 (4)使用Hive对清洗后的数据进行统计分析。
 
@@ -165,12 +162,7 @@ hive -e "drop table weblog_${yesterday};"
 该系统前端主要使用jquery和bootstrap技术，使页面看起来更加美观；后端采用的是Struts2框架结合JDBC技术进行开发。Web系统展示主要包括两个方面:用户登录和统计展示效果如下：
 
 ![login](img/login.png)
-<center>  
-           登陆界面
-</center>
+<center>登陆界面</center>
 
 ![result](img/result.png)
-
-<center>
-统计结果展示页面
-</center>
+<center>统计结果展示页面</center>
