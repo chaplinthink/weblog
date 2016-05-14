@@ -16,6 +16,7 @@
 日志是由业务系统产生的，我们可以设置web服务器每天产生一个新的目录，目录下面会产生多个日志文件。设置系统定时器CRON，夜间在0点后，向HDFS导入昨天的日志文件。完成导入后，设置系统定时器，启动MapReduce程序，提取并经过Hive计算统计指标。完成计算后，设置系统定时器，从HDFS导出统计指标数据到MySQL数据库,然后通过web系统将KPI指标直观显示出来，供分析决策使用。
 
 架构图： 
+
 ![jiagoutu](img/jiagoutu.png)
                                         
 ##数据库表结构
@@ -77,9 +78,11 @@ hadoop fs -put  access_${yesterday}.log   /web_log
 使用MapReduce对数据进行清洗，把原始数据处理清洗后，放到hdfs的/weblog _cleaned目录下，每天产生一个子目录。将数据清洗项目代码打成jar包，并将其上传至Linux服务器指定目录下，将自动执行清理的MapReduce程序加入脚本中，于每天1点将日志文件上传到HDFS后，执行数据清洗程序对已存入HDFS的日志文件进行过滤，并将过滤后的数据存入weblog_cleaned目录下。
                     
  清洗之前的数据：
+
 ![qingxibefore](img/qingxibefore.png)
                                          
 清洗之后的数据：
+
 ![qingxiafter](img/qingxiafter.png)
                                           
 (4)使用Hive对清洗后的数据进行统计分析。
@@ -159,10 +162,12 @@ hive -e "drop table weblog_${yesterday};"
 该系统前端主要使用jquery和bootstrap技术，使页面看起来更加美观；后端采用的是Struts2框架结合JDBC技术进行开发。Web系统展示主要包括两个方面:用户登录和统计展示效果如下：
 
 登陆界面：
+
 ![login](img/login.png)
    
-                                      
+
 统计结果展示页面：
+
 ![result](img/result.png)
                                    
 
