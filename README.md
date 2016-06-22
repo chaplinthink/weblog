@@ -75,7 +75,7 @@ hadoop fs -put  access_${yesterday}.log   /web_log
 
 (3)使用MapReduce对HDFS中的原始数据进行清洗。
 
-使用MapReduce对数据进行清洗，把原始数据处理清洗后，放到hdfs的/weblog _cleaned目录下，每天产生一个子目录。将数据清洗项目代码打成jar包，并将其上传至Linux服务器指定目录下，将自动执行清理的MapReduce程序加入脚本中，于每天1点将日志文件上传到HDFS后，执行数据清洗程序对已存入HDFS的日志文件进行过滤，并将过滤后的数据存入weblog_cleaned目录下。
+使用MapReduce对数据进行清洗，把原始数据处理清洗后，放到HDFS的/weblog _cleaned目录下，每天产生一个子目录。将数据清洗项目代码打成jar包，并将其上传至Linux服务器指定目录下，将自动执行清理的MapReduce程序加入脚本中，于每天1点将日志文件上传到HDFS后，执行数据清洗程序对已存入HDFS的日志文件进行过滤，并将过滤后的数据存入weblog_cleaned目录下。
                     
  清洗之前的数据：
 
@@ -87,7 +87,7 @@ hadoop fs -put  access_${yesterday}.log   /web_log
                                           
 (4)使用Hive对清洗后的数据进行统计分析。
 
-数据清洗后的结果，是我们接下来要统计的原始数据，我们使用Hive对清洗后的数据进行分区，建立一个外部分区表。清洗后的数据放在HDF中，每天产生一个子目录。分区主要是因为每天产生一个文件夹非常方便，使用分区每次只需要指定日期就可以，不用对所有目录进行全表扫描。下面针对不同的指标进行统计，过程主要如下：
+数据清洗后的结果，是我们接下来要统计的原始数据，我们使用Hive对清洗后的数据进行分区，建立一个外部分区表。清洗后的数据放在HDFS中，每天产生一个子目录。分区主要是因为每天产生一个文件夹非常方便，使用分区每次只需要指定日期就可以，不用对所有目录进行全表扫描。下面针对不同的指标进行统计，过程主要如下：
 
 建立一个外部分区表，脚本如下：
 
@@ -136,7 +136,7 @@ CREATE TABLE weblog_${yesterday} AS SELECT '${yesterday}', a.pv, b.reguser, c.ip
 注意：因为mysql 不允许远程连接，如何让其远程连接： 授权所有权限在目标表上给root用户（任何地方的root），密码是admin。
 
 ```
-grant all on hive.* to ‘root’@’%’ identified by ‘admin’;
+grant all on hive.* to 'root'@'%' identified by 'admin';
 flush privileges;
 ```
 (5)使用Sqoop把Hive产生的统计结果导出到mysql中。
