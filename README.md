@@ -155,9 +155,7 @@ hive -e "drop table weblog_${yesterday};"
 
 ```
 
-(6)如果用户需要查看详细数据的话，可以使用HBase进行展现。
-
-(7)使用Struts2框架技术开发Web展示界面。
+(6)使用Struts2框架技术开发Web展示界面。
 
 该系统前端主要使用jquery和bootstrap技术，使页面看起来更加美观；后端采用的是Struts2框架结合JDBC技术进行开发。Web系统展示主要包括两个方面:用户登录和统计展示效果如下：
 
