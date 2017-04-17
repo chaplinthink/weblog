@@ -7,9 +7,9 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-/*
- * @author zhangwei
- * @date  2016年5月4日
+/**
+ * Created by wei on 2016/5/4
+ * 编码过滤器
  * */
 public class EncodingFilter implements Filter {
 
