@@ -13,9 +13,9 @@ import com.moon.util.GlobalData;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-/*
- * @author zhangwei
- * @date   2016年5月4日
+/**
+ * Created by wei on 2016/5/4
+ *  用户相关操作
  * */
 
 public class AdminAction extends ActionSupport implements ModelDriven<Admin>{
@@ -38,7 +38,7 @@ public class AdminAction extends ActionSupport implements ModelDriven<Admin>{
 		 
 		 //session 设置
 		 Map session = ActionContext.getContext().getSession();
-	     session.put(GlobalData.SessionGuesst,admin);
+	         session.put(GlobalData.SessionGuesst,admin);
 		
 		 return "index";      
 	}
