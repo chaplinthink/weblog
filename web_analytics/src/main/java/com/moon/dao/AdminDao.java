@@ -5,9 +5,9 @@ import javax.servlet.jsp.jstl.sql.Result;
 import com.moon.model.Admin;
 import com.moon.util.GlobalData;
 
-/*
- * @author zhangwei
- * @date 2016年5月4日
+/**
+ * Created by wei on 2016/5/4
+ * 
  * */
 public class AdminDao extends BaseDao {
     //管理员登陆
