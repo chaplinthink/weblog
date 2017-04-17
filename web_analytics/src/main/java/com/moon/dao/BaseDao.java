@@ -10,9 +10,9 @@ import java.util.SortedMap;
 import javax.servlet.jsp.jstl.sql.Result;
 import javax.servlet.jsp.jstl.sql.ResultSupport;
 
-/*
- *@author zhangwei
- *@date  2016年5月4日 
+/**
+ * Created by wei on 2016/5/4
+ * 基础DAO
  * */
 
 public class BaseDao {
@@ -120,7 +120,7 @@ public class BaseDao {
 	 * @param sql
 	 * @param args
 	 * @return Result
-	 * @author wei hsdcloud@163.com
+	 * 
 	 * */
 	public Result query(String sql, String[] args) {
 		// 定义Result 对象用于封装结果集对象
@@ -179,8 +179,6 @@ public class BaseDao {
 //		return rs;
 //	}
 	
-	
-
 	public int executeUpdate(String sql) {
 		int result = 0;
 		try {
