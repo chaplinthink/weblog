@@ -5,9 +5,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.SortedMap;
 
-/*
- * @author zhangwei
- * @date 2016年5月4日
+/** 
+ *Created by wei on 2016/5/4
+ * 
  * */
 public class GlobalData {
 	
