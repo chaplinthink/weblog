@@ -14,7 +14,8 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import com.weblog.parser.LogParser;
-/*
+
+/**
  * mr数据清洗
  * 
  * @author zhangwei
