@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/*
+/**
  * 解析器
  * 
  * 对原始数据进行解析
