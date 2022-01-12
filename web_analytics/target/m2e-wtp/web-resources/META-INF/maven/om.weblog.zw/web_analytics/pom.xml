@@ -11,7 +11,7 @@
     <!-- 设置框架版本变量值 -->
   <properties>
         <!-- spring版本号 -->
-        <spring.version>5.3.1</spring.version>
+        <spring.version>5.3.14</spring.version>
         <!-- mybatis版本号 -->
         <mybatis.version>3.2.4</mybatis.version>
         <!-- log4j日志文件管理包版本 -->
